@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Chat Rooms</title>
-</head>
-<body>
-    What chat room would you like to enter?<br>
+{% extends 'chat/base.html' %}
+{% block content %}
+
+<!--     What chat room would you like to enter?<br>
     <input id="room-name-input" type="text" size="100"><br>
     <input id="room-name-submit" type="button" value="Enter">
 
@@ -21,6 +17,27 @@
             var roomName = document.querySelector('#room-name-input').value;
             window.location.pathname = '/chat/' + roomName + '/';
         };
-    </script>
-</body>
-</html>
+    </script> -->
+
+
+<form class="col-3 d-flex justify-content-center" method="post">
+    {% csrf_token %} 
+        <div class="form-row p-4"> 
+            <div class="col mt-2"> 
+            <label for="exampleInputPassword1" class="form-label">Enter Your Name</label>
+            <input type="text" class="form-control" name="Username" placeholder=" User Name"> 
+            </div> 
+
+            <div class="col mt-2"> 
+            <label for="exampleInputPassword2" class="form-label">Enter Your Group Name</label>
+            <input type="text" class="form-control" name="Group" placeholder=" Group Name"> 
+            </div>
+  
+  
+            <div class="col mt-2"> 
+            <button class="btn btn-primary btn-block" type="submit">Start Chatting</button> 
+           </div>
+        </div> 
+    </form> 
+
+{% endblock %}
